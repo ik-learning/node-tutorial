@@ -1,0 +1,5 @@
+= *Node.js first app*
+
+How to run
+node /develop/TEMP_REPO/nodfirst/start/server.js
+
