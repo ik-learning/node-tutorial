@@ -1,12 +1,15 @@
 // exports
-var phrases = require('./ru.json');
+var db = require('./../db');
+// pattern module-factory
+var log = require('./../logger')(module);
+
 function User(name) {
     this.name = name;
 }
 
 User.prototype.hello = function (who) {
     // ...
-    console.log(phrases.Hello + ", " + who.name)
+    log(db.getPhrase('Hello') + ", " + who.name)
 };
 
 // ...
