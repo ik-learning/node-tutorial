@@ -11,6 +11,6 @@ User.prototype.hello = function (who) {
 
 // ...
 
-console.log("user.js is required from modules");
-exports.User = User;
-console.log(module);
+// console.log("user.js is required from modules");
+module.exports = User;
+// console.log(module);
