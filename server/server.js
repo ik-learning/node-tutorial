@@ -1,4 +1,6 @@
 var http = require('http');
+//var debug = require('debug')('server');
+var fs = require('fs');
 
 var server = new http.Server();
 
@@ -9,6 +11,7 @@ var emit = server.emit;
 server.emit = function (event /*, arg1, arg2, ..*/) {
    console.log(event);
    emit.apply(server, arguments);
+   fs.readFile()
 };
 
 server.on('request', function (req, res) {
