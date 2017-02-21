@@ -4,6 +4,7 @@ var path = require('path');
 
 var app = express();
 app.set('port', 3000);
+//app.set('env', 'development');
 
 var server = http.createServer(app).listen(app.get('port'), function () {
     var host = server.address().address;
@@ -18,6 +19,26 @@ app.get('/test', function (req, res, next) {
 
 app.get('/health', function (req, res) {
     res.end('Health endpoint\n');
+});
+
+app.use(function (req, res, next) {
+    if (req.url == '/forbidden') {
+        next(new Error('woops, denied'))
+    } else {
+        res.header("Content-Type", "application/json");
+        res.status(404).send({error: 'API NOT FOUND'});
+    }
+});
+
+
+/**
+ * Error handler
+ */
+app.use(function (error, req, res, next) {
+    if (app.get('env') == 'development') {
+        console.log('development error handler not set')
+    }
+    res.status(500).send({error: 'Service Unavailable'})
 });
 
 app.get('/shutdown', function (req, res) {
