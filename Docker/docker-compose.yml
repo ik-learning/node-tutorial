@@ -9,9 +9,19 @@ services:
      environment:
         - MONGODB_PASS=admin
         - MONGODB_USER=admin
+        - DATABASE_NAME=TEST
      networks:
         internal:
            ipv4_address: 172.16.11.5
+  dynamodb:
+     image: peopleperhour/dynamodb
+     container_name: "CONT-DYNAMO"
+     hostname: dynamodb
+     ports:
+         - 8000:8000
+     networks:
+        internal:
+           ipv4_address: 172.16.11.12
 
 networks:
   internal:
