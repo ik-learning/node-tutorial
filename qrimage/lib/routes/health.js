@@ -23,7 +23,7 @@ function collectData() {
 function prepareResponse(res, data) {
     res.header('Content-Type', "application/json");
     if (data) {
-        console.log(data);
+        // console.log(data);
         res.status(200).json(data);
     } else {
         res.status(404).json({ error : 'App is not running'});

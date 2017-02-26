@@ -2,6 +2,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var health = require('./lib/routes/health');
+var qrimage = require('./lib/routes/qrimage');
 
 var app = express();
 app.use(bodyParser.json());
@@ -18,5 +19,7 @@ app.get('/health', function (req, res) {
 });
 
 // create gr image endpoint
-
+app.post('/qrimage', function (req, res) {
+    qrimage.route(req, res);
+});
 
