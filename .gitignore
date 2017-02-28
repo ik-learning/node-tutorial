@@ -5,3 +5,4 @@
 /locationeo4j/docker/db/
 */node_modules/*
 /locationeo4j/app/node_modules/
+/dynamonode/app/node_modules
