@@ -2,3 +2,6 @@
 .idea
 /server/server.iml
 */node_modules
+/locationeo4j/docker/db/
+*/node_modules/*
+/locationeo4j/app/node_modules/

@@ -1,0 +1,24 @@
+version: '2'
+services:
+   neo4j:
+     image: neo4j:3.1
+     container_name: "CONT-NEO4J"
+     hostname: neo4j
+     environment:
+        - NEO4J_AUTH=none
+     ports:
+        - "7474:7474"
+     volumes:
+        - ./db/dbms:/data/dbm
+     networks:
+        internal:
+           ipv4_address: 172.16.11.5
+
+networks:
+  internal:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+          - subnet: 172.16.11.0/24
+            gateway: 172.16.11.1
