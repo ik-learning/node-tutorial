@@ -1,0 +1,11 @@
+{
+  "name": "node-dynamo-db",
+  "version": "0.0.1",
+  "description": "Initial DYNAMO DB app",
+  "main": "server.js",
+  "license": "Unlicences",
+  "dependencies": {
+    "express": "^4.13.4",
+    "aws-sdk": "^2.22.0"
+  }
+}
