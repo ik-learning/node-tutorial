@@ -1,0 +1,16 @@
+{
+  "name": "Client Call",
+  "version": "0.0.1",
+  "ByLocation" : {
+    "Protocol" : "https",
+    "Host": "www.myhermes.co.uk",
+    "Path": "/ajax/ref/parcelShopsByLocation",
+    "Query": "?lat=52.97310040000001&lng=-1.167089600000054&maxResults=500000"
+  },
+  "ById" : {
+    "Protocol" : "https",
+    "Host": "www.myhermes.co.uk",
+    "Path": "/ajax/ref/parcelShopById",
+    "Query": "?id="
+  }
+}

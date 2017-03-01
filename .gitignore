@@ -6,3 +6,5 @@
 */node_modules/*
 /locationeo4j/app/node_modules/
 /aggrshopdata/app/node_modules/
+*-hidden.json
+*node_modules

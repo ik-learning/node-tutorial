@@ -1,8 +1,11 @@
+'user strict';
+
 var express = require('express');
 var bodyParser = require("body-parser");
+var byLocation = require('./lib/routes/byLocation');
+var byId = require('./lib/routes/byId');
 // create external service.
 var fs = require('fs');
-var util = require('util');
 
 var app = express();
 app.use(bodyParser.json());
@@ -15,11 +18,77 @@ var server = app.listen(8081, function () {
 });
 
 app.get('/all', function (req, res) {
-    fs.writeFile('./lib/staticdata/all.json', Json.stringify({ "data" : "passed"}, null, 2), function (err, data) {
-        if (err) {
-            return console.log(err);
-        }
-        console.log(data);
+    //byLocation.routeTest(req, res);
+    byLocation.routeWeb(req, res);
+});
+
+app.get('/ids', function (req, res) {
+    byId.routeWeb(req, res);
+});
+
+app.get('/test', function (req, res) {
+    var data = {};
+    data.table = [];
+
+    data.table.push({ key: "2342151235"});
+    data.table.push({ acount: "locked"});
+    data.table.push({
+        "address": {
+            "street": "3/5 Dudley Avenue,",
+            "postCode": "WF17 0JY",
+            "city": "Batley",
+            "telephone": "3313 001 001"
+        },
+        "dist": 841,
+        "description": "TEST PARCELSHOP 2514",
+        "shopOwner": "",
+        "parcelShopNumber": 1992,
+        "businessHours": [
+            {
+                "dayOfWeek": "Sun",
+                "openFrom": "07:00",
+                "openTill": "20:00"
+            },
+            {
+                "dayOfWeek": "Mon",
+                "openFrom": "07:00",
+                "openTill": "20:00"
+            },
+            {
+                "dayOfWeek": "Tue",
+                "openFrom": "07:00",
+                "openTill": "20:00"
+            },
+            {
+                "dayOfWeek": "Wed",
+                "openFrom": "07:00",
+                "openTill": "20:00"
+            },
+            {
+                "dayOfWeek": "Thu",
+                "openFrom": "07:00",
+                "openTill": "20:00"
+            },
+            {
+                "dayOfWeek": "Fri",
+                "openFrom": "07:00",
+                "openTill": "20:00"
+            },
+            {
+                "dayOfWeek": "Sat",
+                "openFrom": "07:00",
+                "openTill": "20:00"
+            }
+        ],
+        "acceptsSuitcases": false,
+        "sellsBoxes": false,
+        "lat": 53.734993,
+        "lng": -1.646018,
+        "externalId": "S01992",
+        "salesforceID": "S01992",
+        "typeID": 0
     });
-    res.end('Job Done');
+
+    fs.writeFileSync('./lib/staticdata/all.json', JSON.stringify(data.table, null, 4));
+    res.end('Job Done\n');
 });
