@@ -22,6 +22,9 @@ services:
      networks:
         internal:
            ipv4_address: 172.16.11.12
+  // redis
+  // neo4j
+
 
 networks:
   internal:
