@@ -1,0 +1,4 @@
+https://github.com/neo4j-contrib/spatial#using-the-neo4j-spatial-server-pluginl
+
+link to plugin
+https://github.com/neo4j-contrib/spatial#using-the-neo4j-spatial-server-plugin

@@ -1,0 +1,138 @@
+[
+  {
+    "shopId": 4106,
+    "lat": 52.975754,
+    "lng": -1.168309,
+    "distance": 306,
+    "description": "BEST ONE - NG7 7FY",
+    "address": {
+      "street": "60/62 Northgate Road",
+      "postCode": "NG7 7FY",
+      "city": "New Basford"
+    },
+    "onHoliday": false,
+    "externalId": "S04106",
+    "typeID": 0,
+    "operatorName": "Manager",
+    "businessHours": [
+      {
+        "dayOfWeek": "Mon",
+        "openFrom": "06:00",
+        "openTill": "22:00"
+      },
+      {
+        "dayOfWeek": "Tue",
+        "openFrom": "06:00",
+        "openTill": "22:00"
+      },
+      {
+        "dayOfWeek": "Wed",
+        "openFrom": "06:00",
+        "openTill": "22:00"
+      },
+      {
+        "dayOfWeek": "Thu",
+        "openFrom": "06:00",
+        "openTill": "22:00"
+      },
+      {
+        "dayOfWeek": "Fri",
+        "openFrom": "06:00",
+        "openTill": "22:00"
+      },
+      {
+        "dayOfWeek": "Sat",
+        "openFrom": "06:00",
+        "openTill": "22:00"
+      },
+      {
+        "dayOfWeek": "Sun",
+        "openFrom": "07:00",
+        "openTill": "21:30"
+      }
+    ],
+    "acceptsSuitcases": false,
+    "hasBoxes": false,
+    "ident": false,
+    "telephone": "01159 785339",
+    "email": "nesan1812@hotmail.com",
+    "parkingAvailable": true,
+    "atmAvailable": true,
+    "billPaymentAvailable": false,
+    "lotteryAvailable": true,
+    "sevenDayOpening": true,
+    "offLicense": true,
+    "tobaccoSales": true,
+    "cardPaymentAvailable": true,
+    "salesforceID": "S04106",
+    "sortCode1": 0
+  },
+  {
+    "shopId": 1027,
+    "lat": 52.9668,
+    "lng": -1.171632,
+    "distance": 763,
+    "description": "PREMIER - NG7 5DU",
+    "address": {
+      "street": "141 Radford Road",
+      "postCode": "NG7 5DU",
+      "city": "Hyson Green"
+    },
+    "onHoliday": false,
+    "externalId": "S01027",
+    "typeID": 0,
+    "operatorName": "Juttla",
+    "businessHours": [
+      {
+        "dayOfWeek": "Mon",
+        "openFrom": "10:00",
+        "openTill": "23:00"
+      },
+      {
+        "dayOfWeek": "Tue",
+        "openFrom": "10:00",
+        "openTill": "23:00"
+      },
+      {
+        "dayOfWeek": "Wed",
+        "openFrom": "10:00",
+        "openTill": "23:00"
+      },
+      {
+        "dayOfWeek": "Thu",
+        "openFrom": "10:00",
+        "openTill": "23:00"
+      },
+      {
+        "dayOfWeek": "Fri",
+        "openFrom": "10:00",
+        "openTill": "23:00"
+      },
+      {
+        "dayOfWeek": "Sat",
+        "openFrom": "10:00",
+        "openTill": "23:00"
+      },
+      {
+        "dayOfWeek": "Sun",
+        "openFrom": "10:00",
+        "openTill": "22:30"
+      }
+    ],
+    "acceptsSuitcases": false,
+    "hasBoxes": false,
+    "ident": false,
+    "telephone": "01159783089",
+    "email": "amritjuttla@hotmail.com",
+    "parkingAvailable": true,
+    "atmAvailable": false,
+    "billPaymentAvailable": true,
+    "lotteryAvailable": true,
+    "sevenDayOpening": true,
+    "offLicense": true,
+    "tobaccoSales": true,
+    "cardPaymentAvailable": true,
+    "salesforceID": "S01027",
+    "sortCode1": 0
+  }
+]
