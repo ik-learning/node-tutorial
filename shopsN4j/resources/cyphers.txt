@@ -1,0 +1,2 @@
+MATCH (n:Point) WITH n CALL spatial.addNode('points',n) YIELD node RETURN node
+
