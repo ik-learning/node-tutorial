@@ -1,0 +1,11 @@
+# Get plugins and extensions.
+http://neo4j:neo4j@localhost:7474/db/data/
+
+POST http://localhost:7474/db/data/ext/SpatialPlugin/graphdb/addSimplePointLayer
+{:body=>"{\"layer\":\"geom\",\"lat\":\"lat\",\"lon\":\"lon\"}"}
+# POST http://localhost:7474/db/data/index/node
+{:body=>"{\"name\":\"geom\",\"config\":{\"provider\":\"spatial\",\"geometry_type\":\"point\",\"lat\":\"lat\",\"lon\":\"lon\"}}"}
+POST http://localhost:7474/db/data/node
+{:body=>"{\"lat\":null,\"lon\":null,\"name\":\"value\",\"team\":null,\"capacity\":null}"}
+# POST http://localhost:7474/db/data/index/node/geom
+{:body=>"{\"key\":\"dummy\",\"value\":\"dummy\",\"uri\":\"http://localhost:7474/db/data/node/value123\"}"}
