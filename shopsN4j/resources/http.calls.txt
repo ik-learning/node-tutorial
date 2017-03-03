@@ -1,0 +1,2 @@
+ curl localhost:3000/find?findquery=LS270WH&dist=10
+
