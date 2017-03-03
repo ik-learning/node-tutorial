@@ -1,2 +1,35 @@
 MATCH (n:Point) WITH n CALL spatial.addNode('points',n) YIELD node RETURN node
 
+Add Layer
+CALL spatial.addPointLayer('cities');
+
+Add all Cities to Layer
+MATCH (c:City)
+WITH collect(c) AS cities
+CALL spatial.addNodes('cities',cities) YIELD node
+RETURN count(*)
+
+DEMO
+http://gist.asciidoctor.org/?dropbox-14493611%2Fcypher_spatial.adoc#_spatial_procedures
+
+Find within Distance
+MATCH (c:City {name:"Berlin"}) WITH c
+CALL spatial.distance('cities', c , 200) YIELD node, distance
+RETURN node.name AS name, round(distance) AS dist
+
+Example for shortet-path with pull-in predicates
+Here is no data in the dataset, just exemplary
+
+MATCH (a:Loc {name:"Berlin"}),(b:Loc {name:"Dresden"})
+MATCH p = shortestPath((a)-[roads:ROAD*]->(d))
+WHERE NONE(r in roads WHERE r.closed or r.speed < 30)
+RETURN p;
+
+Circle
+What is on the outer rim on the 250 km circle.
+
+match (a:City {name:"Berlin"}),(b:City)
+WITH a, b, toInt(distance(point(a),point(b)) / 1000) as distance
+WHERE distance < 250
+RETURN a.name, b.name, distance
+ORDER BY distance DESC LIMIT 10;
