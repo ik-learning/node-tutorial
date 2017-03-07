@@ -7,13 +7,10 @@ var db = new neo4j('http://172.16.11.5:7474');
 var NodeGeocoder = require('node-geocoder');
 
 
-app.listen(3000, function () {
+app.listen(8089, function () {
     console.log('started');
 });
 
-app.post('/upload', function () {
-
-});
 
 var http = require("http");
 var request = require('request');
@@ -52,7 +49,6 @@ app.get('/find', function (req, res, next) {
 
 });
 
-var facilitites = {};
 app.get('/facilities', function (req, res, next) {
     var data = ['acceptsSuitcases', 'hasBoxes', 'ident', 'parkingAvailable', 'atmAvailable',
         'billPaymentAvailable', 'lotteryAvailable', 'sevenDayOpening', 'offLicense', 'tobaccoSales', 'cardPaymentAvailable'];
@@ -76,7 +72,7 @@ app.get('/upload', function (req, res, next) {
     };
     var facilitiesD = ['acceptsSuitcases', 'hasBoxes', 'ident', 'parkingAvailable', 'atmAvailable',
         'billPaymentAvailable', 'lotteryAvailable', 'sevenDayOpening', 'offLicense', 'tobaccoSales', 'cardPaymentAvailable'];
-    var indexes = [];
+
     var counter = 0;
     for (var i in data) {
         var shop = data[i];
@@ -89,12 +85,41 @@ app.get('/upload', function (req, res, next) {
             if (err) return next(err);
             addToPointLayer(node._id, headers);
             for (var sf in shop.facilities) {
-                db.insertRelationship(node._id, 6, 'HAS', { title: '7 days'});
-                db.insertRelationship(node._id, 10, 'HAS', { title: 'atm'});
-                for (var f in facilitiesD) {
-                    // if (sf == f) {
-                    //     db.insertRelationship(node._id, 2330, 'HAS');
-                    // }
+                switch (shop.facilities[sf]) {
+                    case 'acceptsSuitcases':
+                        db.insertRelationship(node._id, 2, 'HAS', {title: 'suite case'});
+                        break;
+                    case 'hasBoxes':
+                        db.insertRelationship(node._id, 1, 'HAS', {title: 'boxes'});
+                        break;
+                    case 'ident':
+                        db.insertRelationship(node._id, 6, 'HAS', {title: 'ident'});
+                        break;
+                    case 'parkingAvailable':
+                        db.insertRelationship(node._id, 3, 'HAS', {title: 'parking'});
+                        break;
+                    case 'atmAvailable':
+                        db.insertRelationship(node._id, 7, 'HAS', {title: 'atm'});
+                        break;
+                    case 'billPaymentAvailable':
+                        db.insertRelationship(node._id, 0, 'HAS', {title: 'pay bill'});
+                        break;
+                    case 'lotteryAvailable':
+                        db.insertRelationship(node._id, 5, 'HAS', {title: 'lottery'});
+                        break;
+                    case 'sevenDayOpening':
+                        db.insertRelationship(node._id, 4, 'HAS', {title: '7 days'});
+                        break;
+                    case 'offLicense':
+                        db.insertRelationship(node._id, 9, 'HAS', {title: 'off licence'});
+                        break;
+                    case 'tobaccoSales':
+                        db.insertRelationship(node._id, 8, 'HAS', {title: 'tobacco'});
+                        break;
+                    case 'cardPaymentAvailable':
+                        db.insertRelationship(node._id, 10, 'HAS', {title: 'card payment'});
+                        break;
+
                 }
             }
             counter += 1;

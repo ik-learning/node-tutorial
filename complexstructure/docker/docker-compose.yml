@@ -10,7 +10,7 @@ services:
         - "7474:7474"
         - "7687:7587"
      volumes:
-        - ./db/dbms:/data
+#        - ./db/dbms:/data
         - ./plugins:/plugins/
      networks:
         internal:
