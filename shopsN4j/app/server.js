@@ -70,12 +70,6 @@ app.get('/upload', function (req, res, next) {
             description: shop.description,
             lat: shop.lat,
             lon: shop.lng
-            //,
-            // address: {
-            //     street: shop.address.street,
-            //     postCode: shop.address.postCode,
-            //     city: shop.address.city
-            // }
         }, ['Shop'], function (err, node) {
             if (err) return next(err);
             addToPointLayer(node._id, headers);
@@ -92,7 +86,7 @@ function addToGeomIndex(id, headers) {
 
 function addToPointLayer(id, headers) {
     var url = 'http://172.16.11.5:7474/db/data/ext/SpatialPlugin/graphdb/addNodeToLayer';
-    var nodeLocation = "http://localhost:7575/db/data/node/" + id;
+    var nodeLocation = "http://172.16.11.5:7575/db/data/node/" + id;
     var data = {layer: "geom", node: nodeLocation};
     request.post({url: url, form: data, headers: headers}, function (error, request, body) {
         if (error) console.log(error);
@@ -112,54 +106,5 @@ app.get('/setup', function (req, res, next) {
         console.log(body);
     });
 
-    // DEPRECATED in version 3.0.2
-    // var url = 'http://172.16.11.5:7474/db/data/index/node/';
-    //
-    // var data = {name: "geom", config: {provider: "spatial", geometry_type: "point", lat: "lat", lon: "lon"}};
-    // request.post({url: url, form: data, headers: headers}, function (error, request, body) {
-    //     if (error) console.log(error);
-    //     console.log(body);
-    // });
-
-
 });
 
-/*
- {"name":"geom","config":{"provider":"spatial","geometry_type":"point","lat":"lat","lon":"lon"}}' --header "Content-Type:application/json" http://localhost:7474/db/data/index/node/
-
-
- */
-
-
-
-
-
-
-
-
-
-/*
- var options = {
- hostname: '172.16.11.5',
- port: 7474,
- path: '/db/data/ext/SpatialPlugin/graphdb/addSimplePointLayer',
- method: 'POST',
- headers: {
- 'Content-Type': 'application/json'
- }
- };
- var req = http.request(options, function(res) {
- console.log('Status: ' + res.statusCode);
- console.log('Headers: ' + JSON.stringify(res.headers));
- res.setEncoding('utf8');
- res.on('data', function (body) {
- console.log('Body: ' + body);
- });
- });
- req.on('error', function(e) {
- console.log('problem with request: ' + e.message);
- });
- req.write("{\"layer\":\"geom\",\"lat\":\"lat\",\"lon\":\"lon\"}");
- req.end();
-
- */
