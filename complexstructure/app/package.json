@@ -1,0 +1,13 @@
+{
+  "name": "shops-neo4j",
+  "version": "0.0.1",
+  "description": "Populate GRAPH db with shops data",
+  "main": "server.js",
+  "license": "Unlicences",
+  "dependencies": {
+    "express": "^4.13.4",
+    "neo4j": "^2.0.0-RC2",
+    "node-neo4j": "^2.0.3",
+    "node-geocoder": "^3.16.0"
+  }
+}
