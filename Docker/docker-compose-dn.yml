@@ -1,18 +1,5 @@
 version: '2'
 services:
-  mongodb:
-     image: tutum/mongodb:latest
-     container_name: "CONT-MONGO"
-     hostname: mongodb
-     ports:
-        - 27017:27017
-     environment:
-        - MONGODB_PASS=admin
-        - MONGODB_USER=admin
-        - DATABASE_NAME=TEST
-     networks:
-        internal:
-           ipv4_address: 172.16.11.5
   dynamodb:
      image: peopleperhour/dynamodb
      container_name: "CONT-DYNAMO"
@@ -22,9 +9,6 @@ services:
      networks:
         internal:
            ipv4_address: 172.16.11.12
-
-
-
 networks:
   internal:
     driver: bridge
