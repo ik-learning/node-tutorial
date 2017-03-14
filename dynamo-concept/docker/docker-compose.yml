@@ -1,0 +1,19 @@
+version: '2'
+services:
+  dynamodb:
+     image: peopleperhour/dynamodb
+     container_name: "CONT-DYNAMO-CONCEPT"
+     hostname: dynamodb
+     ports:
+         - 8000:8000
+     networks:
+        internal:
+           ipv4_address: 172.16.11.12
+networks:
+  internal:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+          - subnet: 172.16.11.0/24
+            gateway: 172.16.11.1

@@ -1,0 +1,14 @@
+{
+  "name": "shops-mongo-concept",
+  "version": "0.0.1",
+  "description": "Populate Dynamo DB with shops data",
+  "main": "server.js",
+  "license": "Unlicences",
+  "dependencies": {
+    "express": "4.15.2",
+    "mongoose": "3.8.8",
+    "async": "0.2.10",
+    "body-parser": "^1.15.2",
+    "method-override": "2.3.7"
+  }
+}

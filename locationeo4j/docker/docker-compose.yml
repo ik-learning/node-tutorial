@@ -9,9 +9,6 @@ services:
      ports:
         - "7474:7474"
         - "7687:7587"
-     volumes:
-        - ./db/dbms:/data
-        - ./plugins:/plugins/
      networks:
         internal:
            ipv4_address: 172.16.11.5

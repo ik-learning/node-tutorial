@@ -1,0 +1,24 @@
+{
+  "name": "shops-dynamodb",
+  "version": "0.0.1",
+  "description": "Populate Dynamo DB with shops data",
+  "main": "server.js",
+  "license": "Unlicences",
+  "dependencies": {
+    "aws-sdk": "^2.6.3",
+    "bluebird": "~3.4.1",
+    "lodash": "^4.14.0",
+    "node-uuid": "^1.4.7",
+    "npm-git": "^0.1.29",
+    "npm-git-install": "^0.3.0"
+  },
+  "engines": {
+    "node": ">=6.3.0"
+  },
+  "scripts": {
+    "install": "npm-git install"
+  },
+  "gitDependencies": {
+    "public-package-name": "https://github.com/nascentdigital/nd-geohash-core.git#revision"
+  }
+}

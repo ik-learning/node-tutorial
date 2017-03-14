@@ -1,0 +1,26 @@
+version: '2'
+services:
+  mongodb:
+     image: tutum/mongodb:latest
+     container_name: "CONT-MONGO-GEO"
+     hostname: mongodb
+     ports:
+        - 27017:27017
+     environment:
+        - DATABASE_NAME=locations
+        - MONGODB_PASS=test
+        - MONGODB_USER=test
+     volumes:
+        - ./db:/data/db
+     networks:
+        internal:
+           ipv4_address: 172.16.11.5
+
+networks:
+  internal:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+          - subnet: 172.16.11.0/24
+            gateway: 172.16.11.1
